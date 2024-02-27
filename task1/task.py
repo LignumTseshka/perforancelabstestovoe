@@ -1,12 +1,9 @@
-while True: 
-    try:
-        print("Введите длину массива:")
-        n = int(input())
-        print("Введите интервал:")
-        m = int(input())
-        break
-    except ValueError:
-        print("Ошибка. Повторите ввод чисел.")
+import sys
+
+n = int(sys.argv[1])
+m = int(sys.argv[2])
+
+assert(n > 0 and m > 0), "Invalid Arguments"
 
 index = 0
 res = ""

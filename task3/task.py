@@ -1,5 +1,6 @@
 import json, sys
 
+
 def addValues(obj):
     if isinstance(obj, list): 
         for i in obj:
@@ -7,11 +8,16 @@ def addValues(obj):
     if isinstance(obj, dict):
         if obj.keys().__contains__("values"):
             addValues(obj["values"])
-        value = ""; id = obj["id"]
+        value = None; id = obj["id"]
         for i in values['values']:
             if i["id"] == id:
                 value = i["value"]
                 break
+        if value == None:
+            value = "passed"
+            for dic in obj["values"]:
+                if dic["value"] == "failed":
+                    value = "failed"
         obj['value'] = value
     
 
